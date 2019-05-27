@@ -21,14 +21,8 @@ public class CClassDAOImpl implements CClassDAO {
         PreparedStatement pstmt = connection.prepareStatement(sql);
         pstmt.setInt(1, departmentId);
         ResultSet rs = pstmt.executeQuery();
-        List<CClass> classList = new ArrayList<>();
-        while (rs.next()) {
-            CClass cClass = new CClass();
-            cClass.setId(rs.getInt("id"));
-            cClass.setDepartmentId(rs.getInt("department_id"));
-            cClass.setClassName(rs.getString("class_name"));
-            classList.add(cClass);
-        }
+        List<CClass> classList = convert(rs);
+//
         rs.close();
         pstmt.close();
         jdbcUtil.closeConnection();
@@ -59,5 +53,29 @@ public class CClassDAOImpl implements CClassDAO {
         return n;
     }
 
+    @Override
+    public List<CClass> selectAll() throws SQLException {
+        JDBCUtil jdbcUtil = JDBCUtil.getInitJDBCUtil();
+        Connection connection = jdbcUtil.getConnection();
+        String sql = "SELECT * FROM t_class ORDER BY department_id ";
+        PreparedStatement pstmt = connection.prepareStatement(sql);
+        ResultSet rs = pstmt.executeQuery();
+        List<CClass> classList = convert(rs);
+        rs.close();
+        pstmt.close();
+        jdbcUtil.closeConnection();
+        return classList;
+    }
 
+    private List<CClass> convert(ResultSet rs) throws  SQLException{
+        List<CClass> classList = new ArrayList<>();
+        while (rs.next()) {
+            CClass cClass = new CClass();
+            cClass.setId(rs.getInt("id"));
+            cClass.setDepartmentId(rs.getInt("department_id"));
+            cClass.setClassName(rs.getString("class_name"));
+            classList.add(cClass);
+        }
+        return  classList;
+    }
 }

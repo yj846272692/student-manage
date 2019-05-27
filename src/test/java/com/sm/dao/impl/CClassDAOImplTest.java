@@ -31,4 +31,13 @@ public class CClassDAOImplTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void selectAll() {
+        try {
+            System.out.println(cClassDAO.selectAll());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

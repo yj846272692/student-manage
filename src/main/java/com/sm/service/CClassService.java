@@ -11,4 +11,7 @@ public interface CClassService {
     void deledeClassById(int id);
 
     int insertClass(CClass cClass);
+
+    List<CClass> selectAll();
+
 }
