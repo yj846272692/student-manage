@@ -55,6 +55,39 @@ public interface StudentDAO {
 
     int updateStudent(Student student) throws SQLException;
 
+    /**
+     * 新增学生
+     * @param student
+     * @return
+     * @throws SQLException
+     */
+    int insertStudent(Student student) throws SQLException;
+
+    /**
+     * 批量导入
+     * @param studentList
+     * @return
+     * @throws SQLException
+     */
+    int batchInsertStudent(List<Student> studentList) throws  SQLException;
+
+    /**
+     * 根据院系ID统计学生人数
+     * @param departmentId
+     * @return
+     * @throws SQLException
+     */
+    int countByDepartmentId(int departmentId) throws  SQLException;
+
+    /**
+     * 根据班级Id统计学生人数
+     *
+     * @param classId
+     * @return int
+     * @throws SQLException
+     */
+    int countByClassId(int classId) throws SQLException;
+
 
 
 

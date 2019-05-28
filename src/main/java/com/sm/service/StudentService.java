@@ -32,6 +32,14 @@ public interface StudentService {
 
     int deleteById(String id) throws SQLException;
 
+    int insertStudent(Student student) throws SQLException;
+
+    /**
+     * @param classId
+     * @return
+     */
+    int countStudentByClassId(int classId);
+
 
 
 }

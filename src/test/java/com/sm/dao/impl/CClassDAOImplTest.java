@@ -40,4 +40,14 @@ public class CClassDAOImplTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void countByDepartmentId() {
+        try {
+            System.out.println(cClassDAO.countByDepartmentId(2));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
 }

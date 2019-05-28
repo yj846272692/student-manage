@@ -21,6 +21,7 @@ import java.awt.event.*;
 import java.io.File;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 public class AdminMainFrame extends JFrame {
     private JPanel rootPanel;
@@ -338,6 +339,14 @@ public class AdminMainFrame extends JFrame {
             }
         });
 
+        新增学生Button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+               new AddStudentFrame(AdminMainFrame.this);
+               AdminMainFrame.this.setEnabled(true);
+            }
+        });
     }
 
     /**
@@ -347,13 +356,16 @@ public class AdminMainFrame extends JFrame {
         //移除原有数据
         contentPanel.removeAll();
         //从service层获取到所有院系列表
-        List<Department> departmentList = ServiceFactory.getDepartmentServiceImpl().selectAll();
+        List<Map> departmentList = ServiceFactory.getDepartmentServiceImpl().selectDepartmentInfo();
         int len = departmentList.size();
         int row = len % 4 == 0 ? len / 4 : len / 4 + 1;
         GridLayout gridLayout = new GridLayout(row, 4, 15, 15);
         contentPanel.setLayout(gridLayout);
-        for (Department department : departmentList) {
+        for (Map map : departmentList) {
             //给每个院系对象创建一个面板
+            Department department = (Department) map.get("department");
+            int classCount = (int) map.get("classCount");
+            int studentCount = (int) map.get("studentCount");
             JPanel depPanel = new JPanel();
             //删除功能键
             delBtn = new JButton("删除");
@@ -380,9 +392,16 @@ public class AdminMainFrame extends JFrame {
             JLabel logoLabel = new JLabel("<html><img src='" + department.getLogo() + "' width=200 height=200/></html>");
             //图标标签加入院系面板
             depPanel.add(logoLabel);
-            depPanel.add(delBtn,BorderLayout.SOUTH);
+
+
+
+
+            JLabel infoLabel = new JLabel("班级" + classCount + "个,学生" + studentCount + "人");
             //院系面板加入主体内容面板
+            depPanel.add(infoLabel,BorderLayout.SOUTH);
+            depPanel.add(delBtn,BorderLayout.EAST);
             contentPanel.add(depPanel);
+
             //刷新主体内容面板
             contentPanel.revalidate();
         }
@@ -413,7 +432,8 @@ public class AdminMainFrame extends JFrame {
             top.add(group);
             List<CClass> classList = ServiceFactory.getCClassServiceInstance().selectByDepartmentId(department.getId());
             for (CClass cClass:classList) {
-                DefaultMutableTreeNode node = new DefaultMutableTreeNode(cClass.getClassName());
+                int num = ServiceFactory.getStudentServiceInstance().countStudentByClassId(cClass.getId());
+                DefaultMutableTreeNode node = new DefaultMutableTreeNode(cClass.getClassName() + "  :" + num + "人");
                 group.add(node);
             }
         }
@@ -492,7 +512,7 @@ public class AdminMainFrame extends JFrame {
 
 
     }
-    private void showStudentTable(List<StudentVO> studentList){
+    public void showStudentTable(List<StudentVO> studentList){
         tablePanel.removeAll();
 
 //        List<StudentVO> studentList = ServiceFactory.getStudentServiceInstance().selectAll();

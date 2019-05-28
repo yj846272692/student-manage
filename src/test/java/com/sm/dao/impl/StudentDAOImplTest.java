@@ -9,6 +9,7 @@ import com.sm.factory.DAOFactory;
 import org.junit.Test;
 
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 
@@ -70,5 +71,24 @@ public class StudentDAOImplTest {
         student.setPhone("18854125691");
         studentDAO.updateStudent(student);
 
+    }
+
+    @Test
+    public void insertStudent() throws SQLException {
+        Student student = new Student();
+        student.setId("1802345767");
+        student.setClassId(2);
+        student.setStudentName("三三");
+        student.setAvatar(null);
+        student.setBirthday(new Date());
+        student.setGender("男");
+        student.setAddress("江苏南京");
+        student.setPhone("18475155744");
+        studentDAO.insertStudent(student);
+    }
+
+    @Test
+    public void countByDepartmentId() throws SQLException {
+        System.out.println(studentDAO.countByDepartmentId(1));
     }
 }

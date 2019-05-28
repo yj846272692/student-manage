@@ -41,4 +41,13 @@ public interface CClassDAO {
      */
     List<CClass> selectAll()throws SQLException;
 
+    /**
+     * 根据院系ID查询班级
+     *
+     * @param departmentId
+     * @return int
+     * @throws SQLException
+     */
+    int countByDepartmentId(int departmentId) throws SQLException;
+
 }

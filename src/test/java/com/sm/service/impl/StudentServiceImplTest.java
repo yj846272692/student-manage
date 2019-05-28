@@ -7,6 +7,7 @@ import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import org.junit.Test;
 
 import java.sql.SQLException;
+import java.util.Date;
 
 import static org.junit.Assert.*;
 
@@ -51,5 +52,20 @@ public class StudentServiceImplTest {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    @Test
+    public void insertStudent() throws SQLException {
+        Student student = new Student();
+        student.setId("1802345311");
+        student.setClassId(2);
+        student.setStudentName("丝丝");
+        System.out.println(" ");
+        student.setAvatar(null);
+        student.setBirthday(new Date());
+        student.setGender("女");
+        student.setAddress("江苏南京");
+        student.setPhone("18475155744");
+        studentService.insertStudent(student);
     }
 }
