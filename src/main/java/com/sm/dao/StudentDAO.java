@@ -1,7 +1,6 @@
 package com.sm.dao;
 
-import com.sm.entity.Student;
-import com.sm.entity.StudentVO;
+import com.sm.entity.*;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -37,6 +36,22 @@ public interface StudentDAO {
      * @throws SQLException
      */
     List<StudentVO> selectByKeywords(String keywords) throws  SQLException;
+
+
+    List<StudentRewards> selectAllRewards() throws SQLException;
+
+    List<StudentPunishments> selectAllPunishments() throws SQLException;
+    List<StudentPunishments> selectPunishmentsByPrimaryId(int primaryId) throws SQLException;
+    List<StudentVO> selectStudentById(String id)throws SQLException;
+    List<StudentRewards> selectRewardsById(String id) throws  SQLException;
+    List<StudentPunishments> selectPunishmentsById(String id) throws  SQLException; int insertRewards(StudentRewards rewards)throws SQLException;
+
+    int insertPunishments(StudentPunishments punishments) throws SQLException;
+
+    int deletePunishmentsByPrimaryId(int primaryId) throws SQLException;
+
+    int countPunishments() throws SQLException;
+    int countRewards() throws SQLException;
 
     /**
      * 根据ID删除学生
@@ -87,6 +102,18 @@ public interface StudentDAO {
      * @throws SQLException
      */
     int countByClassId(int classId) throws SQLException;
+
+
+    /**
+     * 奖惩模块
+     */
+
+    List<StudentVO1> selectBody() throws SQLException;
+    List<StudentVO1> selectById(String id) throws SQLException;
+    List<StudentVO1> selectByWords(String words) throws SQLException;
+    int updateStudentRp(StudentVO1 student) throws  SQLException;
+
+    StudentVO1 selectByStudentId(String name) throws SQLException;
 
 
 

@@ -51,6 +51,12 @@ public class AdminLoginFrame extends JFrame {
                 passwordField.setText("");
             }
         });
+        登录Button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
     }
 
     public static void main(String[] args) throws Exception{

@@ -1,5 +1,6 @@
 package com.sm.frame;
 
+import com.eltima.components.ui.DatePicker;
 import com.sm.entity.*;
 import com.sm.ui.ImgPanel;
 import com.sm.utils.AliOSSUtil;
@@ -7,11 +8,11 @@ import com.sm.utils.AliOSSUtil;
 import com.sm.factory.ServiceFactory;
 import com.sm.thread.TimeThread;
 import org.jb2011.lnf.beautyeye.BeautyEyeLNFHelper;
+
 import sun.swing.table.DefaultTableCellHeaderRenderer;
 
 import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
+
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumn;
@@ -20,8 +21,12 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+
+import static javax.swing.JOptionPane.YES_OPTION;
 
 public class AdminMainFrame extends JFrame {
     private JPanel rootPanel;
@@ -75,6 +80,25 @@ public class AdminMainFrame extends JFrame {
     private JPanel tablePanel;
     private JLabel stuBirthdayLabel;
     private JButton 编辑Button;
+    private JTextField rp搜索Field;
+    private JButton 搜索Button1;
+    private JButton 更改奖惩信息Button;
+    private JButton 修改完成Button;
+    private JLabel 姓名Label;
+    private JLabel 院系Label;
+    private JLabel 班级Label;
+    private JTextArea 奖励TextArea;
+    private JTextArea 惩罚TextArea;
+    private JLabel 性别Label;
+    private JPanel rewardsPanel;
+    private JPanel punishmentsPanel;
+    private JComboBox comboBox3;
+    private JButton timeBtn;
+    private JButton 惩处记录增加完成Button;
+    private JComboBox comboBox4;
+    private JButton 奖励增加完成Button;
+    private JButton 刷新Button;
+    private JComboBox comboBox5;
     private  int row;
 
 
@@ -82,6 +106,10 @@ public class AdminMainFrame extends JFrame {
 
 
     public AdminMainFrame(Admin admin) {
+
+        final DatePicker datepick;
+        datepick = getDatePicker();
+        timeBtn.add(datepick);
 
         this.admin = admin;
         adminNameLabel.setText(admin.getAdminName());
@@ -240,7 +268,7 @@ public class AdminMainFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 cardLayout.show(centerPanel, "Card3");
-                infoPanel.setFileName("40.jpg");
+                infoPanel.setFileName("13.jpg");
                 infoPanel.repaint();
                 List<StudentVO> studentList = ServiceFactory.getStudentServiceInstance().selectAll();
                 showStudentTable(studentList);
@@ -347,6 +375,229 @@ public class AdminMainFrame extends JFrame {
                AdminMainFrame.this.setEnabled(true);
             }
         });
+        奖惩管理Button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cardLayout.show(centerPanel,"Card4");
+                List<StudentRewards> studentList= ServiceFactory.getStudentServiceInstance().selectRewardsById(rp搜索Field.getText());
+                List<StudentPunishments> studentPunishments= ServiceFactory.getStudentServiceInstance().selectPunishmentsById(rp搜索Field.getText());
+                showRewards(studentList);
+                showPunishments(studentPunishments);
+            }
+        });
+        rp搜索Field.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                rp搜索Field.setText(" ");
+            }
+        });
+
+        搜索Button1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int m = ServiceFactory.getStudentServiceInstance().selectRewardsById(rp搜索Field.getText()).size();
+                int n = ServiceFactory.getStudentServiceInstance().selectPunishmentsById(rp搜索Field.getText()).size();
+                if (m != 0 & n != 0){
+                    String id =rp搜索Field.getText().trim();
+                    List<StudentRewards> studentList= ServiceFactory.getStudentServiceInstance().selectRewardsById(id);
+                    List<StudentPunishments> studentPunishmentsList= ServiceFactory.getStudentServiceInstance().selectPunishmentsById(id);
+                    if (studentList!=null){
+                        showRewards(studentList);
+                        showPunishments(studentPunishmentsList);
+                    }
+                }else {
+                    JOptionPane.showMessageDialog(null, "查无此学生", null, JOptionPane.ERROR_MESSAGE);
+                    try {
+                        Thread.sleep(800);
+                        rp搜索Field.setText("请输入你要查询的学生姓名或者学号");
+                    } catch (InterruptedException e1) {
+                        e1.printStackTrace();
+                    }
+                }
+
+            }
+        });
+
+
+        刷新Button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                List<StudentRewards> studentList= ServiceFactory.getStudentServiceInstance().selectRewardsById(rp搜索Field.getText());
+                List<StudentPunishments> studentPunishments= ServiceFactory.getStudentServiceInstance().selectPunishmentsById(rp搜索Field.getText());
+                showRewards(studentList);
+                showPunishments(studentPunishments);
+            }
+        });
+
+
+
+        comboBox3.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                int index = comboBox3.getSelectedIndex();
+                if (index == 1){
+                    奖励增加完成Button.setVisible(true);
+                }
+                if (index == 2){
+                    奖励增加完成Button.setVisible(true);
+                }
+                if (index == 3){
+                    奖励增加完成Button.setVisible(true);
+                }
+                if (index == 4){
+                    奖励增加完成Button.setVisible(true);
+                }
+                if (index == 5){
+                    奖励增加完成Button.setVisible(true);
+                }
+            }
+        });
+
+        comboBox4.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                int index = comboBox4.getSelectedIndex();
+                if (index ==1){
+                    惩处记录增加完成Button.setVisible(true);
+                }
+                if (index ==2){
+                    惩处记录增加完成Button.setVisible(true);
+                }
+                if (index ==3){
+                    惩处记录增加完成Button.setVisible(true);
+                }
+                if (index ==4){
+                    惩处记录增加完成Button.setVisible(true);
+                }
+            }
+        });
+
+        comboBox5.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                int index = comboBox5.getSelectedIndex();
+                if (index == 1){
+                    comboBox3.setVisible(true);
+                    timeBtn.setVisible(true);
+                }
+                if (index == 2){
+                    comboBox4.setVisible(true);
+                    timeBtn.setVisible(true);
+                }
+            }
+        });
+
+
+        奖励增加完成Button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null, "奖励增加完成 ", null, JOptionPane.INFORMATION_MESSAGE);
+                StudentRewards rewards = new StudentRewards();
+                rewards.setPrimaryId(ServiceFactory.getStudentServiceInstance().countRewards()+1);
+                rewards.setId(rp搜索Field.getText());
+                int index = comboBox3.getSelectedIndex();
+                if (index == 1){
+                    rewards.setRewards("优秀团员");
+                }
+                if (index == 2){
+                    rewards.setRewards("优秀班干部");
+                }
+                if (index == 3){
+                    rewards.setRewards("优秀");
+                }
+                if (index == 4){
+                    rewards.setRewards("优秀");
+                }
+                if (index == 5){
+                    rewards.setRewards("优秀");
+                }
+                rewards.setRewardsDate((Date) datepick.getValue());
+                try {
+                    ServiceFactory.getStudentServiceInstance().insertRewards(rewards);
+                } catch (SQLException e1) {
+                    e1.printStackTrace();
+                }
+                rewardsPanel.revalidate();
+                comboBox3.setVisible(false);
+                timeBtn.setVisible(false);
+                奖励增加完成Button.setVisible(false);
+            }
+        });
+
+        惩处记录增加完成Button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null, "惩处记录增加完成 ", null, JOptionPane.INFORMATION_MESSAGE);
+
+                StudentPunishments punishments = new StudentPunishments();
+                punishments.setPrimaryId(ServiceFactory.getStudentServiceInstance().countPunishments()+1);
+                punishments.setId(rp搜索Field.getText());
+                int index = comboBox4.getSelectedIndex();
+                if (index == 1){
+                    punishments.setPunishments("记过");
+                }
+                if (index == 2){
+                    punishments.setPunishments("记大过");
+                }
+                if (index == 3){
+                    punishments.setPunishments("处分");
+                }
+                if (index == 4){
+                    punishments.setPunishments("开除");
+                }
+                punishments.setPunishmentsDate((Date) datepick.getValue());
+                try {
+                    ServiceFactory.getStudentServiceInstance().insertPunishments(punishments);
+                } catch (SQLException e1) {
+                    e1.printStackTrace();
+                }
+                punishmentsPanel.revalidate();
+                comboBox4.setVisible(false);
+                timeBtn.setVisible(false);
+                惩处记录增加完成Button.setVisible(false);
+
+
+
+            }
+        });
+
+
+
+
+        更改奖惩信息Button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String inputValue = JOptionPane.showInputDialog("请输入管理员密码");
+                if (inputValue.equals("123456") == true) {
+                    JOptionPane.showMessageDialog(null, "密码正确", "输入正确", JOptionPane.INFORMATION_MESSAGE);
+                    奖励TextArea.setEditable(true);
+                    惩罚TextArea.setEditable(true);
+                    修改完成Button.setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(null, "密码错误", "输入错误", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
+        修改完成Button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                奖励TextArea.setEditable(false);
+                惩罚TextArea.setEditable(false);
+                StudentVO1 studentVO1 = new StudentVO1();
+                studentVO1.setId(ServiceFactory.getStudentServiceInstance().selectByStudentId(rp搜索Field.getText().trim()).getId());
+                System.out.println(rp搜索Field.getText());
+                studentVO1.setRewards(奖励TextArea.getText());
+                studentVO1.setPunishments(惩罚TextArea.getText());
+                int n = ServiceFactory.getStudentServiceInstance().updateStudentRp(studentVO1);
+                奖励TextArea.repaint();
+                惩罚TextArea.repaint();
+                if (n == 0) {
+                    JOptionPane.showMessageDialog(null, "已修改", null, JOptionPane.INFORMATION_MESSAGE);
+                }
+
+            }
+        });
     }
 
     /**
@@ -375,7 +626,7 @@ public class AdminMainFrame extends JFrame {
                     int n = JOptionPane.showConfirmDialog(null,
                             "确认删除吗",
                             "警告！",JOptionPane.YES_NO_OPTION);
-                    if (n == JOptionPane.YES_OPTION){
+                    if (n == YES_OPTION){
                         contentPanel.remove(depPanel);
                         contentPanel.repaint();
                         ServiceFactory.getDepartmentServiceImpl().
@@ -449,7 +700,7 @@ public class AdminMainFrame extends JFrame {
         Font titleFont = new Font("微软雅黑",Font.PLAIN,22);
         for (Department department:departmentList) {
             ImgPanel depPanel = new ImgPanel();
-            depPanel.setFileName("40.jpg");
+            depPanel.setFileName("12.jpeg");
             depPanel.repaint();
             depPanel.setPreferredSize(new Dimension(350,500));
             depPanel.setLayout(null);
@@ -517,6 +768,8 @@ public class AdminMainFrame extends JFrame {
 
 //        List<StudentVO> studentList = ServiceFactory.getStudentServiceInstance().selectAll();
         JTable table = new JTable();
+//        table.setBackground(new Color(0,0,0));
+
         DefaultTableModel model = new DefaultTableModel();
         table.setModel(model);
         model.setColumnIdentifiers(new String[]{"学号", "院系", "班级", "姓名", "性别",
@@ -542,6 +795,8 @@ public class AdminMainFrame extends JFrame {
             r.setHorizontalAlignment(JLabel.CENTER);
             table.setDefaultRenderer(Object.class, r);
             JScrollPane scrollPane = new JScrollPane(table, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+            table.setBackground(new Color(62, 134, 160));
+
             tablePanel.add(scrollPane);
             tablePanel.revalidate();
 
@@ -622,6 +877,107 @@ public class AdminMainFrame extends JFrame {
         }
 
     }
+
+    private void showRewards(List<StudentRewards> studentList){
+        Font font = new Font("微软雅黑",Font.BOLD,18);
+        //移除原有数据
+        rewardsPanel.removeAll();
+        for (StudentRewards student : studentList){
+            姓名Label.setText("姓名："+student.getStudentName());
+            性别Label.setText("性别："+student.getGender());
+            班级Label.setText("班级："+student.getClassName());
+            院系Label.setText("院系："+student.getDepartmentName());
+        }
+        List<StudentRewards> rewardsList = ServiceFactory.getStudentServiceInstance().selectRewardsById(rp搜索Field.getText());
+        int len = rewardsList.size();
+        int row = len % 1== 0 ? len / 1 : len / 1 + 1;
+        GridLayout gridLayout = new GridLayout(row, 1, 0, 15);
+        rewardsPanel.setLayout(gridLayout);
+        for (StudentRewards studentRewards : rewardsList) {
+            //给每个院系对象创建一个面板
+            JPanel allPanel = new JPanel();
+
+            allPanel.setPreferredSize(new Dimension(300, 400));
+            //将院系名称设置给面板标题
+            allPanel.setBorder(BorderFactory.createTitledBorder(String.valueOf(studentRewards.getRewardsDate())));
+            JLabel jLabel = new JLabel(studentRewards.getRewards());
+            allPanel.add(jLabel);
+            rewardsPanel.add(allPanel);
+            //刷新主体内容面板
+            rewardsPanel.revalidate();
+
+        }
+    }
+
+    private void showPunishments(List<StudentPunishments> studentList){
+        Font font = new Font("微软雅黑",Font.BOLD,18);
+        punishmentsPanel.removeAll();
+        List<StudentPunishments> punishmentsList = ServiceFactory.getStudentServiceInstance().selectPunishmentsById(rp搜索Field.getText());
+        int len = punishmentsList.size();
+        int row = len % 1== 0 ? len / 1 : len / 1 + 1;
+        GridLayout gridLayout = new GridLayout(row, 1, 0, 15);
+        punishmentsPanel.setLayout(gridLayout);
+        for (StudentPunishments studentPunishments : punishmentsList) {
+            //给每个院系对象创建一个面板
+            JPanel rightPanel = new JPanel();
+//
+            rightPanel.setPreferredSize(new Dimension(300, 400));
+            //将院系名称设置给面板标题
+            rightPanel.setBorder(BorderFactory.createTitledBorder(String.valueOf(studentPunishments.getPunishmentsDate())));
+            JLabel jLabel = new JLabel(studentPunishments.getPunishments());
+            rightPanel.add(jLabel);
+            punishmentsPanel.add(rightPanel);
+            //刷新主体内容面板
+            punishmentsPanel.revalidate();
+            rightPanel.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    int n = JOptionPane.showConfirmDialog(null,"确认删除吗？","警告",JOptionPane.YES_NO_OPTION);
+                    if (n == YES_OPTION){
+                        punishmentsPanel.remove(rightPanel);
+                        punishmentsPanel.repaint();
+                        ServiceFactory.getStudentServiceInstance().deletePunishmentsByPrimaryId(studentPunishments.getPrimaryId());
+                        punishmentsPanel.revalidate();
+                    }
+                }
+            });
+        }
+    }
+
+    private static DatePicker getDatePicker() {
+        final DatePicker datepick;
+        // 格式
+        String DefaultFormat = "yyyy-MM-dd";
+        // 当前时间
+        Date date = new Date();
+        // 字体
+        Font font = new Font("Times New Roman", Font.BOLD, 14);
+        Dimension dimension = new Dimension(177, 24);
+        int[] hilightDays = { 1, 3, 5, 7 };
+        int[] disabledDays = { 4, 6, 5, 9 };
+        //构造方法（初始时间，时间显示格式，字体，控件大小）
+        datepick = new DatePicker(date, DefaultFormat, font, dimension);
+        datepick.setLocation(137, 83);//设置起始位置
+    /*
+    //也可用setBounds()直接设置大小与位置
+    datepick.setBounds(137, 83, 177, 24);
+    */
+        // 设置一个月份中需要高亮显示的日子
+        datepick.setHightlightdays(hilightDays, Color.red);
+        // 设置一个月份中不需要的日子，呈灰色显示
+        datepick.setDisableddays(disabledDays);
+        // 设置国家
+        datepick.setLocale(Locale.CANADA);
+        // 设置时钟面板可见
+        datepick.setTimePanleVisible(true);
+        return datepick;
+    }
+
+
+
+
+
+
 
 
 

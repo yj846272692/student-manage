@@ -148,6 +148,8 @@ public class AddStudentFrame extends  JFrame {
 
             }
         });
+        avatarLabel.addComponentListener(new ComponentAdapter() {
+        });
     }
     private static DatePicker getDatePicker() {
         final DatePicker datepick;

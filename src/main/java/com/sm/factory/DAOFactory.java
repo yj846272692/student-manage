@@ -10,6 +10,8 @@ import com.sm.dao.impl.DepartmentDAOImpl;
 import com.sm.dao.impl.StudentDAOImpl;
 
 public class DAOFactory {
+
+
     public static AdminDAO getAdminDAOInstance() {
         return new AdminDAOImpl();
     }

@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="rootPanel" layout-manager="GridLayoutManager" row-count="6" column-count="11" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="971" height="908"/>
+      <xy x="20" y="20" width="1739" height="1433"/>
     </constraints>
     <properties>
       <background color="-7951156"/>
@@ -34,7 +34,7 @@
               <card name="Card1"/>
             </constraints>
             <properties>
-              <background color="-2655253"/>
+              <background color="-14515737"/>
             </properties>
             <border type="none"/>
             <children>
@@ -232,7 +232,7 @@
                     <properties/>
                     <border type="none"/>
                     <children>
-                      <grid id="60485" binding="classContentPanel" layout-manager="FlowLayout" hgap="5" vgap="50" flow-align="1">
+                      <grid id="60485" binding="classContentPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
                         <constraints/>
                         <properties/>
                         <border type="none"/>
@@ -312,7 +312,7 @@
                   </component>
                 </children>
               </grid>
-              <grid id="5116c" class="com.sm.ui.ImgPanel" binding="infoPanel" layout-manager="GridLayoutManager" row-count="12" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+              <grid id="5116c" class="com.sm.ui.ImgPanel" binding="infoPanel" layout-manager="GridLayoutManager" row-count="11" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                 <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints border-constraint="East"/>
                 <properties>
@@ -323,9 +323,9 @@
                 <children>
                   <component id="8ec3c" class="javax.swing.JLabel" binding="stuAvatarLabel">
                     <constraints>
-                      <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                      <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
                         <minimum-size width="150" height="150"/>
-                        <preferred-size width="150" height="150"/>
+                        <preferred-size width="200" height="200"/>
                       </grid>
                     </constraints>
                     <properties>
@@ -334,7 +334,7 @@
                   </component>
                   <component id="b61b" class="javax.swing.JTextField" binding="stuAddressField">
                     <constraints>
-                      <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                      <grid row="7" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                         <preferred-size width="150" height="-1"/>
                         <maximum-size width="150" height="-1"/>
                       </grid>
@@ -345,7 +345,7 @@
                   </component>
                   <component id="b29df" class="javax.swing.JTextField" binding="stuPhoneField">
                     <constraints>
-                      <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                      <grid row="8" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="1" indent="0" use-parent-layout="false">
                         <preferred-size width="150" height="-1"/>
                         <maximum-size width="150" height="-1"/>
                       </grid>
@@ -356,7 +356,7 @@
                   </component>
                   <component id="4da1b" class="javax.swing.JLabel">
                     <constraints>
-                      <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
                       <font size="20"/>
@@ -365,7 +365,7 @@
                   </component>
                   <component id="ab10a" class="javax.swing.JLabel">
                     <constraints>
-                      <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
                       <font size="20"/>
@@ -374,7 +374,7 @@
                   </component>
                   <component id="78155" class="javax.swing.JLabel">
                     <constraints>
-                      <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
                       <font size="20"/>
@@ -383,7 +383,7 @@
                   </component>
                   <component id="32af6" class="javax.swing.JLabel" binding="stuGenderLabel">
                     <constraints>
-                      <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="5" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
                       <font size="20"/>
@@ -392,7 +392,7 @@
                   </component>
                   <component id="9382d" class="javax.swing.JLabel">
                     <constraints>
-                      <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
                       <font size="20"/>
@@ -401,7 +401,7 @@
                   </component>
                   <component id="a6ad4" class="javax.swing.JLabel" binding="stuNameLabel">
                     <constraints>
-                      <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="4" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
                       <font size="20"/>
@@ -410,7 +410,7 @@
                   </component>
                   <component id="51c1e" class="javax.swing.JLabel">
                     <constraints>
-                      <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
                       <font size="20"/>
@@ -419,7 +419,7 @@
                   </component>
                   <component id="1d2d7" class="javax.swing.JLabel" binding="stuClassLabel">
                     <constraints>
-                      <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="3" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
                       <font size="20"/>
@@ -428,7 +428,7 @@
                   </component>
                   <component id="5525e" class="javax.swing.JLabel">
                     <constraints>
-                      <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
                       <font size="20"/>
@@ -437,7 +437,7 @@
                   </component>
                   <component id="656aa" class="javax.swing.JLabel" binding="stuIdLabel">
                     <constraints>
-                      <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="2" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
                       <font size="20"/>
@@ -446,7 +446,7 @@
                   </component>
                   <component id="9c590" class="javax.swing.JLabel">
                     <constraints>
-                      <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
                       <font size="20"/>
@@ -455,24 +455,15 @@
                   </component>
                   <component id="86a72" class="javax.swing.JLabel" binding="stuDepLabel">
                     <constraints>
-                      <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="1" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
                       <text value=""/>
                     </properties>
                   </component>
-                  <component id="92180" class="javax.swing.JLabel">
-                    <constraints>
-                      <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
-                    </constraints>
-                    <properties>
-                      <font size="22"/>
-                      <text value="个人信息"/>
-                    </properties>
-                  </component>
                   <component id="3d70f" class="javax.swing.JLabel">
                     <constraints>
-                      <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
                       <font size="20"/>
@@ -481,7 +472,7 @@
                   </component>
                   <component id="238ac" class="javax.swing.JLabel" binding="stuBirthdayLabel">
                     <constraints>
-                      <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="6" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
                       <font size="20"/>
@@ -490,19 +481,42 @@
                   </component>
                   <vspacer id="4a93a">
                     <constraints>
-                      <grid row="11" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                      <grid row="10" column="2" row-span="1" col-span="2" vsize-policy="0" hsize-policy="1" anchor="0" fill="0" indent="0" use-parent-layout="false">
                         <preferred-size width="-1" height="200"/>
                       </grid>
                     </constraints>
                   </vspacer>
+                  <component id="8008b" class="javax.swing.JLabel">
+                    <constraints>
+                      <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                    <properties>
+                      <font size="22"/>
+                      <text value="个人信息"/>
+                    </properties>
+                  </component>
                   <component id="f5b5d" class="javax.swing.JButton" binding="编辑Button" default-binding="true">
                     <constraints>
-                      <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="9" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false">
+                        <preferred-size width="80" height="-1"/>
+                      </grid>
                     </constraints>
                     <properties>
                       <text value="编辑"/>
                     </properties>
                   </component>
+                  <hspacer id="f2a43">
+                    <constraints>
+                      <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                        <preferred-size width="200" height="-1"/>
+                      </grid>
+                    </constraints>
+                  </hspacer>
+                  <hspacer id="5b120">
+                    <constraints>
+                      <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                  </hspacer>
                 </children>
               </grid>
               <grid id="bc53f" binding="tablePanel" layout-manager="BorderLayout" hgap="0" vgap="0">
@@ -513,15 +527,237 @@
               </grid>
             </children>
           </grid>
-          <grid id="e9e78" binding="rewardPunishPanel" layout-manager="CardLayout" hgap="0" vgap="0">
+          <grid id="e9e78" binding="rewardPunishPanel" layout-manager="GridLayoutManager" row-count="4" column-count="12" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <card name="Card4"/>
             </constraints>
             <properties>
-              <background color="-7298922"/>
+              <background color="-7951156"/>
             </properties>
             <border type="none"/>
-            <children/>
+            <children>
+              <component id="319de" class="javax.swing.JTextField" binding="rp搜索Field">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="30"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value="请输入学生名字"/>
+                </properties>
+              </component>
+              <hspacer id="259f3">
+                <constraints>
+                  <grid row="0" column="11" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </hspacer>
+              <component id="825b2" class="javax.swing.JButton" binding="搜索Button1">
+                <constraints>
+                  <grid row="0" column="5" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="50" height="30"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value="搜索"/>
+                </properties>
+              </component>
+              <component id="9f911" class="javax.swing.JButton" binding="更改奖惩信息Button" default-binding="true">
+                <constraints>
+                  <grid row="0" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="-1" height="30"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value="更改奖惩信息"/>
+                </properties>
+              </component>
+              <component id="4525a" class="javax.swing.JButton" binding="修改完成Button" default-binding="true">
+                <constraints>
+                  <grid row="0" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="修改完成"/>
+                  <visible value="false"/>
+                </properties>
+              </component>
+              <component id="7e848" class="javax.swing.JLabel" binding="姓名Label">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font size="28"/>
+                  <text value="姓名"/>
+                </properties>
+              </component>
+              <component id="6f0bd" class="javax.swing.JLabel" binding="院系Label">
+                <constraints>
+                  <grid row="1" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font size="28"/>
+                  <text value="院系"/>
+                </properties>
+              </component>
+              <component id="3d8d2" class="javax.swing.JLabel" binding="性别Label">
+                <constraints>
+                  <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font size="28"/>
+                  <text value="性别"/>
+                </properties>
+              </component>
+              <component id="1cbf6" class="javax.swing.JLabel" binding="班级Label">
+                <constraints>
+                  <grid row="1" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font size="28"/>
+                  <text value="班级"/>
+                </properties>
+              </component>
+              <grid id="248c9" layout-manager="FlowLayout" hgap="50" vgap="5" flow-align="1">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="12" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                    <minimum-size width="-1" height="80"/>
+                    <preferred-size width="-1" height="80"/>
+                    <maximum-size width="-1" height="80"/>
+                  </grid>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="1090d" class="javax.swing.JComboBox" binding="comboBox3">
+                    <constraints/>
+                    <properties>
+                      <model>
+                        <item value="优秀团员"/>
+                        <item value="优秀班干部"/>
+                        <item value="优秀"/>
+                        <item value="优秀"/>
+                        <item value="优秀"/>
+                        <item value="优秀"/>
+                        <item value="优秀"/>
+                        <item value="优秀"/>
+                      </model>
+                      <visible value="false"/>
+                    </properties>
+                  </component>
+                  <component id="f96d6" class="javax.swing.JButton" binding="奖励增加完成Button">
+                    <constraints/>
+                    <properties>
+                      <text value="奖励增加完成"/>
+                      <visible value="false"/>
+                    </properties>
+                  </component>
+                  <component id="fb21a" class="javax.swing.JComboBox" binding="comboBox4">
+                    <constraints/>
+                    <properties>
+                      <model>
+                        <item value="记过"/>
+                        <item value="记大过"/>
+                        <item value="处分"/>
+                        <item value="开除"/>
+                        <item value="开除"/>
+                        <item value="开除"/>
+                        <item value="开除"/>
+                      </model>
+                      <visible value="false"/>
+                    </properties>
+                  </component>
+                  <component id="b986c" class="javax.swing.JButton" binding="惩处记录增加完成Button" default-binding="true">
+                    <constraints/>
+                    <properties>
+                      <text value="惩处记录增加完成"/>
+                      <visible value="false"/>
+                    </properties>
+                  </component>
+                  <component id="49ee4" class="javax.swing.JButton" binding="timeBtn">
+                    <constraints/>
+                    <properties>
+                      <text value=""/>
+                      <visible value="false"/>
+                    </properties>
+                  </component>
+                </children>
+              </grid>
+              <grid id="93ea6" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="12" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <splitpane id="7c8ba">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                        <preferred-size width="200" height="200"/>
+                      </grid>
+                    </constraints>
+                    <properties>
+                      <enabled value="true"/>
+                    </properties>
+                    <border type="none"/>
+                    <children>
+                      <scrollpane id="a056">
+                        <constraints>
+                          <splitpane position="left"/>
+                        </constraints>
+                        <properties/>
+                        <border type="none"/>
+                        <children>
+                          <grid id="13c18" binding="rewardsPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                            <margin top="0" left="0" bottom="0" right="0"/>
+                            <constraints/>
+                            <properties/>
+                            <border type="none"/>
+                            <children/>
+                          </grid>
+                        </children>
+                      </scrollpane>
+                      <scrollpane id="35c3b">
+                        <constraints>
+                          <splitpane position="right"/>
+                        </constraints>
+                        <properties/>
+                        <border type="none"/>
+                        <children>
+                          <grid id="964a1" binding="punishmentsPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                            <margin top="0" left="0" bottom="0" right="0"/>
+                            <constraints/>
+                            <properties/>
+                            <border type="none"/>
+                            <children/>
+                          </grid>
+                        </children>
+                      </scrollpane>
+                    </children>
+                  </splitpane>
+                </children>
+              </grid>
+              <component id="76122" class="javax.swing.JButton" binding="刷新Button" default-binding="true">
+                <constraints>
+                  <grid row="0" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="刷新"/>
+                </properties>
+              </component>
+              <component id="691f7" class="javax.swing.JComboBox" binding="comboBox5" default-binding="true">
+                <constraints>
+                  <grid row="0" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <model>
+                    <item value="请选择事项"/>
+                    <item value="奖励"/>
+                    <item value="惩罚"/>
+                  </model>
+                </properties>
+              </component>
+            </children>
           </grid>
         </children>
       </grid>

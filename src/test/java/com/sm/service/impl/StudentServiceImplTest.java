@@ -1,6 +1,8 @@
 package com.sm.service.impl;
 
 import com.sm.entity.Student;
+import com.sm.entity.StudentRewards;
+import com.sm.entity.StudentVO1;
 import com.sm.factory.ServiceFactory;
 import com.sm.service.StudentService;
 import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
@@ -67,5 +69,48 @@ public class StudentServiceImplTest {
         student.setAddress("江苏南京");
         student.setPhone("18475155744");
         studentService.insertStudent(student);
+    }
+
+    @Test
+    public void updateStudentRp() {
+        StudentVO1 studentVO1 = new StudentVO1();
+        studentVO1.setId("1802343301");
+        studentVO1.setRewards("2131323213321");
+        studentVO1.setPunishments("21312");
+        studentService.updateStudentRp(studentVO1);
+    }
+
+    @Test
+    public void selectByStudentId() {
+        StudentVO1 studentVO1 = studentService.selectByStudentId("一号");
+        System.out.println(studentVO1.getId());
+
+
+    }
+
+    @Test
+    public void countPunishments() {
+        int n = studentService.countPunishments();
+        System.out.println(n);
+
+    }
+
+    @Test
+    public void countRewards() {
+    }
+
+    @Test
+    public void insertRewards() throws SQLException {
+        StudentRewards rewards = new StudentRewards();
+        rewards.setPrimaryId(5);
+        rewards.setId("1802343301");
+        rewards.setRewardsDate(new Date(2012-02-12));
+        rewards.setRewards("优秀团支书");
+        studentService.insertRewards(rewards);
+
+    }
+
+    @Test
+    public void insertPunishments() {
     }
 }
